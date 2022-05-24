@@ -5,6 +5,9 @@ import { addButton } from "../utils/dom";
  */
 describe("10-exercises", () => {
   beforeAll(() => {
+    let wrapElement = document.createElement("div");
+    wrapElement.classList.add("wrapper");
+    document.body.appendChild(wrapElement);// 
     // 1. set the default inner html of the document body
     //    to have a div with a class of .wrapper
   });
@@ -13,16 +16,20 @@ describe("10-exercises", () => {
     // You should make 1 assertion in this test, see bellow
     expect.assertions(1);
 
-    const btnText = "Save";
+    let btnText = "Button";
 
     // 2. execute the addButton function and pass it as an argument
     //    the `btnText` variable
+    addButton(btnText);
 
     // 3. use document.querySelector to get the new button
     //    the `addButton` creates a button with a class of .btn
     //    that you can use in document.querySelector
-
+    const myNewButton = document.querySelector(".btn");
+ 
     // 4. make an assertion that the buttons textContent is
     //    the same as the `btnText` variable
+    expect(myNewButton.textContent).toBe(btnText);
+
   });
 });
